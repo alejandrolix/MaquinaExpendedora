@@ -46,9 +46,30 @@ namespace MaquinaExpendedora
 
         }
 
-        public void SacarProducto()
+        public void SacarProducto(Producto producto)
         {
+            float precioIntroducido, cambioDinero;
 
+            Console.Clear();
+            Console.Write("Introduce " + producto.Precio + " euros: ");
+            precioIntroducido = float.Parse(Console.ReadLine());
+
+            cambioDinero = producto.Precio - precioIntroducido;
+
+            Console.Clear();
+            Console.WriteLine("Por favor, retira el producto de la bandeja.");
+            System.Threading.Thread.Sleep(4000);
+
+            producto.Precio = producto.Precio - 1;            
+
+            Console.Clear();
+
+            if (cambioDinero > 0.00)
+            {
+                Console.WriteLine("Recoje el cambio.");
+                Console.WriteLine("Cambio: " + cambioDinero + " euros");
+            }
+            Console.Clear();
         }
 
         public void AniadirProducto(String nombre, String marca, int cantidad, float precio)
