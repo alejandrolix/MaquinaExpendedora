@@ -51,9 +51,20 @@ namespace MaquinaExpendedora
 
         }
 
-        public void AniadirProducto()
-        {
+        public void AniadirProducto(String nombre, String marca, int cantidad, float precio)
+        {            
+            this.Productos.Add(new Producto( nombre, marca, cantidad, precio));
 
+            if (this.Productos.Count > 2)
+            {
+                this.Productos.Sort();
+            }
+            
+            Console.Clear();
+            Console.WriteLine("Producto Añadido.");
+            System.Threading.Thread.Sleep(4000);
+
+            Console.Clear();
         }
 
         #endregion

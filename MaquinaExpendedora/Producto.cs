@@ -57,6 +57,11 @@ namespace MaquinaExpendedora
 
         }
 
+        public override string ToString()
+        {
+            return String.Format("Datos Producto \n Código: {0} \n Nombre: {1} \n Marca: {2} \n Precio: {3:F2} \n", Producto.ID, this.Nombre, this.Marca, this.Precio);
+        }
+
         #endregion
 
 
@@ -65,7 +70,7 @@ namespace MaquinaExpendedora
 
         public Producto(String nombre, String marca, int cantidad, float precio)
         {
-            Producto.ID = ObtenerSiguienteID();
+            Producto.ID = Producto.ObtenerSiguienteID();
             this.Nombre = nombre;
             this.Marca = marca;
             this.Cantidad = cantidad;
