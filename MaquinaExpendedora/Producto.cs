@@ -52,9 +52,19 @@ namespace MaquinaExpendedora
             return Producto.ID + 1;
         }
 
-        public void CambiarDatosProducto(Producto producto)
+        public void CambiarDatosProducto(String nombreIntroducido, String marcaIntroducida, int cantidadIntroducida, float precioIntroducido)
         {
+            Producto.ID = Producto.ID;
+            this.Nombre = nombreIntroducido;
+            this.Marca = marcaIntroducida;
+            this.Cantidad = cantidadIntroducida;
+            this.Precio = precioIntroducido;
 
+            Console.Clear();
+            Console.WriteLine("Datos Cambiados.");
+            System.Threading.Thread.Sleep(4000);
+
+            Console.Clear();
         }
 
         public override string ToString()
@@ -63,7 +73,6 @@ namespace MaquinaExpendedora
         }
 
         #endregion
-
 
 
         #region Constructor

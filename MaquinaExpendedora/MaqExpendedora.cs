@@ -41,9 +41,11 @@ namespace MaquinaExpendedora
 
         #region Métodos
 
-        public void CambiarDatosMaquina()
+        public void CambiarDatosMaquina(String marcaIntroducida, String modeloIntroducido, String telefonoIntroducido)
         {
-
+            this.Marca = marcaIntroducida;
+            this.Modelo = modeloIntroducido;
+            this.TelefonoAverias = telefonoIntroducido;
         }
 
         public void SacarProducto(Producto producto)
@@ -60,7 +62,7 @@ namespace MaquinaExpendedora
             Console.WriteLine("Por favor, retira el producto de la bandeja.");
             System.Threading.Thread.Sleep(4000);
 
-            producto.Precio = producto.Precio - 1;            
+            producto.Cantidad = producto.Cantidad - 1;                       
 
             Console.Clear();
 
