@@ -53,10 +53,25 @@ namespace MaquinaExpendedora
             float precioIntroducido, cambioDinero;
 
             Console.Clear();
-            Console.Write("Introduce " + producto.Precio + " euros: ");
+            Console.Write("Introduce {0:F2} euros: ", producto.Precio);
             precioIntroducido = float.Parse(Console.ReadLine());
 
-            cambioDinero = producto.Precio - precioIntroducido;
+            if (precioIntroducido > producto.Precio)
+            {
+                cambioDinero = precioIntroducido - producto.Precio;
+            }
+            else if (precioIntroducido < producto.Precio)
+            {
+                cambioDinero = producto.Precio - precioIntroducido;
+
+                Console.Clear();
+                Console.WriteLine("Error, te falta " + cambioDinero + " euros por introducir.");
+                System.Threading.Thread.Sleep(5000);
+            }
+            else
+            {
+                cambioDinero = 0.00f;
+            }
 
             Console.Clear();
             Console.WriteLine("Por favor, retira el producto de la bandeja.");
@@ -66,11 +81,8 @@ namespace MaquinaExpendedora
 
             Console.Clear();
 
-            if (cambioDinero > 0.00)
-            {
-                Console.WriteLine("Recoje el cambio.");
-                Console.WriteLine("Cambio: " + cambioDinero + " euros");
-            }
+            Console.WriteLine("Cambio: {0:F2} euros", cambioDinero);
+            System.Threading.Thread.Sleep(6000);
             Console.Clear();
         }
 
